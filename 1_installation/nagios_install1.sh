@@ -6,8 +6,8 @@ sudo groupadd nagcmd
 sudo usermod -a -G nagcmd nagios_user
 sudo usermod -a -G nagcmd www-data
 cd /opt
-sudo wget https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios4.4.3/nagios-4.4.3.tar.gz
-tar xzf nagios-4.4.3.tar.gz
+sudo wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
+tar xzf nagios-4.2.0.tar.gz
 cd nagios-4.4.3
 sudo ./configure --with-command-group=nagcmd
 sudo make all
@@ -17,6 +17,7 @@ sudo make install-daemoninit
 sudo make install-config
 sudo make install-commandmode
 sudo make install-exfoliation
+sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
 sudo cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
 sudo chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 
