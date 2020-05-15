@@ -3,7 +3,7 @@ sudo apt-get install wget build-essential unzip openssl libssl-dev
 sudo apt-get install apache2 php libapache2-mod-php php-gd libgd-dev
 sudo adduser nagios_user
 sudo groupadd nagcmd
-sudo usermod -a -G nagcmd nagios_user
+sudo usermod -a -G nagcmd nagios
 sudo usermod -a -G nagcmd www-data
 cd /opt
 sudo wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
