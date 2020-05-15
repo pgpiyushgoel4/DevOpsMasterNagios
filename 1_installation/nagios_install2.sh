@@ -1,4 +1,3 @@
-sudo chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 sudo a2enconf nagios
 sudo a2enmod cgi rewrite
