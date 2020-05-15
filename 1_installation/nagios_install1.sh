@@ -1,26 +1,22 @@
 sudo apt-get update
-sudo apt-get install apache2 php build-essential libgd-dev
-/usr/sbin/groupadd nagios
-/usr/sbin/usermod -G nagios nagios
+sudo apt-get install wget build-essential unzip openssl libssl-dev
+sudo apt-get install apache2 php libapache2-mod-php php-gd libgd-dev
+sudo adduser nagios_user
+sudo groupadd nagcmd
+sudo usermod -a -G nagcmd nagios_user
+sudo usermod -a -G nagcmd www-data
+cd /opt
+sudo wget https://github.com/NagiosEnterprises/nagioscore/releases/download/nagios4.4.3/nagios-4.4.3.tar.gz
+tar xzf nagios-4.4.3.tar.gz
+cd nagios-4.4.3
+sudo ./configure --with-command-group=nagcmd
+sudo make all
+sudo make install
+sudo make install-init
+sudo make install-daemoninit
+sudo make install-config
+sudo make install-commandmode
+sudo make install-exfoliation
+sudo cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
+sudo chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 
-/usr/sbin/groupadd nagcmd
-/usr/sbin/usermod -a -G nagcmd nagios
-/usr/sbin/usermod -a -G nagcmd www-data
-
-mkdir ~/downloads
-cd ~/downloads
-wget http://prdownloads.sourceforge.net/sourceforge/nagios/nagios-4.2.1.tar.gz
-wget http://prdownloads.sourceforge.net/sourceforge/nagiosplug/nagios-plugins-2.1.3.tar.gz
-
-cd ~/downloads
-tar xzf nagios-4.2.1.tar.gz
-cd nagios-4.2.1
-
-./configure --with-command-group=nagcmd
-
-make all
-
-make install
-make install-init
-make install-config
-make install-commandmode
