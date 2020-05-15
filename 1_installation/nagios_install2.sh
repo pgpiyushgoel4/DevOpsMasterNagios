@@ -1,4 +1,5 @@
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
+sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
 sudo a2enconf nagios
 sudo a2enmod cgi rewrite
 sudo service apache2 restart
