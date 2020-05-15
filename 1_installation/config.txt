@@ -1,0 +1,20 @@
+
+#####################init.d file###################################
+
+DESC="Nagios" N
+AME=nagios
+DAEMON=/usr/local/nagios/bin/nagios
+DAEMON_ARGS="-d /usr/local/nagios/etc/nagios.cfg"
+
+
+####################service###################################
+[Unit]
+Description=Nagios
+BindTo=network.target
+[Install]
+WantedBy=multi-user.target
+[Service]
+User=nagios
+Group=nagios
+Type=simple
+ExecStart=/usr/local/nagios/bin/nagios /usr/local/nagios/etc/nagios.cfg
