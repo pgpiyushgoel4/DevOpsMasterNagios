@@ -8,7 +8,7 @@ sudo usermod -a -G nagcmd www-data
 cd /opt
 sudo wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.2.0.tar.gz
 sudo tar xzf nagios-4.2.0.tar.gz
-cd nagios-4.4.3
+cd nagios-4.2.0
 sudo ./configure --with-command-group=nagcmd
 sudo make all
 sudo make install
