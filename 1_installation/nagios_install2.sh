@@ -7,4 +7,5 @@ sudo make install
 sudo a2enmod cgi rewrite
 sudo htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
 sudo ln -s /etc/apache2/sites-available/nagios.conf /etc/apache2/sites-enabled/
-service apache2 restart service nagios start 
+sudo service apache2 restart 
+sudo service nagios start 
