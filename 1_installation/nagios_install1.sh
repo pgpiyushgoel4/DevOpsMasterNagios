@@ -19,5 +19,4 @@ sudo make install-commandmode
 sudo make install-exfoliation
 sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
 sudo cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
-sudo chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 
