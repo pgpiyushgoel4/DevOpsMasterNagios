@@ -15,8 +15,7 @@ sudo make install
 sudo make install-daemoninit
 sudo make install-commandmode
 sudo make install-config
-sudo /usr/bin/install -c -m 644 sample-config/httpd.conf  \ 
-	/etc/apache2/sites-available/nagios.conf
+sudo /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
 sudo cp -R contrib/eventhandlers/ /usr/local/nagios/libexec/
 sudo chown -R nagios:nagios /usr/local/nagios/libexec/eventhandlers
 sudo make install-webconf
@@ -28,8 +27,7 @@ sudo apt-get install -y autoconf gcc libc6 libmcrypt-dev make \
 	libssl-dev wget bc gawk dc build-essential snmp \ 
 	libnet-snmp-perl gettext
 cd /tmp
-wget --no-check-certificate -O nagios-plugins.tar.gz \ 
-  https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
+wget --no-check-certificate -O nagios-plugins.tar.gz https://github.com/nagios-plugins/nagios-plugins/archive/release-2.2.1.tar.gz
 tar zxf nagios-plugins.tar.gz
 cd nagios-plugins-release-2.2.1/
 sudo ./tools/setup
